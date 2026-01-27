@@ -2,7 +2,8 @@ name: Sync Release Changes to BibleQuiz.com
 
 on:
   release:
-    types: [edited] # [created, released, prereleased, unpublished, deleted]
+    # [created, released, prereleased, unpublished, deleted]
+    types: [edited]
 
 jobs:
   sync-release:
