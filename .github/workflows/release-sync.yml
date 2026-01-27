@@ -1,7 +1,6 @@
 name: sync-releases-biblequiz
 on:
-  release: {}
-  workflow_dispatch:
+  release:
 jobs:
   sync-release:
     runs-on: ubuntu-latest
