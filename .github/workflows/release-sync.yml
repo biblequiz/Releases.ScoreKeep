@@ -1,7 +1,6 @@
 name: sync-releases-biblequiz
 on:
-  release:
-    types: [published, created, prereleased, edited, unpublished, deleted]
+  release: {}
   workflow_dispatch:
 jobs:
   sync-release:
