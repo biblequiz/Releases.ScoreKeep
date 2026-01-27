@@ -7,9 +7,6 @@ jobs:
   sync-release:
     runs-on: ubuntu-latest
     steps:
-  sync-release:
-    runs-on: ubuntu-latest
-    steps:
       - name: Generate token
         id: generate_token
         uses: actions/create-github-app-token@v1
