@@ -38,11 +38,13 @@ jobs:
           TAG_NAME="${{ github.event.release.tag_name }}"
           # Sanitize tag name for use as filename (replace / with -)
           FILENAME=$(echo "$TAG_NAME" | sed 's/\//-/g')
-          FULLPATH="src/releases/${FILENAME}.json"
+          DIRECTORY="src/releases/ScoreKeep"
+          FULLPATH="${DIRECTORY}/${FILENAME}.json"
           
           ACTION="${{ github.event.action }}"
-          
-          if [[ "$ACTION" == "deleted" || "$ACTION" == "unpublished" ]]; then
+          if [[ -z "$FILENAME" ]]; then
+            echo "No File Name detected"
+          elif [[ "$ACTION" == "deleted" || "$ACTION" == "unpublished" ]]; then
             # Delete the file if it exists
             if [ -f "$FULLPATH" ]; then
               rm "$FULLPATH"
@@ -52,7 +54,7 @@ jobs:
             fi
           else
             # Create releases directory if it doesn't exist
-            mkdir -p src/releases
+            mkdir -p $DIRECTORY
             
             # Write the entire release object to JSON file
             cat > "$FULLPATH" << 'EOF'
