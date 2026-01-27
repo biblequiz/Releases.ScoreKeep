@@ -1,7 +1,8 @@
 name: sync-releases-biblequiz
 on:
   workflow_dispatch:
-  release: {}
+  release:
+    types: [created, edited, deleted, prereleased, published, released, unpublished]
 jobs:
   sync-release:
     runs-on: ubuntu-latest
