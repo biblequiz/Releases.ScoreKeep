@@ -1,7 +1,7 @@
 name: sync-releases-biblequiz
 on:
   release:
-    types: [prereleased, released, deleted, unpublished]
+    types: [edited, prereleased, released, deleted, unpublished]
 jobs:
   sync-release:
     runs-on: ubuntu-latest
