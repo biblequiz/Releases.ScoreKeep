@@ -21,8 +21,9 @@ jobs:
         with:
           repository: biblequiz/BibleQuiz.com
           token: ${{ steps.generate_token.outputs.token }}
+          path: BibleQuiz.com
       
-      - name: Process release data
+      - name: Display Release data
         id: process
         run: |
           echo "Release action: ${{ github.event.action }}"
